@@ -17,19 +17,19 @@
             &nbsp;<asp:Label ID="NameLabel" runat="server">Name</asp:Label>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <asp:TextBox runat="server" id="NameTextInput" />
-            &nbsp;<asp:RequiredFieldValidator ID="NameRequiredFieldValidator" runat="server" ControlToValidate="NameTextInput" Display="Dynamic" ErrorMessage="Field can't be left blank!" ForeColor="Red" SetFocusOnError="True" ValidationGroup="RequiredFieldValidator">*</asp:RequiredFieldValidator>
+            &nbsp;<asp:RequiredFieldValidator ID="NameRequiredFieldValidator" runat="server" ControlToValidate="NameTextInput" Display="Dynamic" ErrorMessage="Name field can't be left blank!" ForeColor="Red" SetFocusOnError="True" ValidationGroup="RequiredFieldValidator">*</asp:RequiredFieldValidator>
                 <br />
                 <br />
 &nbsp;<asp:Label ID="AgeLabel" runat="server" Text="Age"></asp:Label>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <asp:TextBox ID="AgeTextInput" runat="server" OnTextChanged="AgeTextInput_TextChanged"></asp:TextBox>
-&nbsp;<asp:RequiredFieldValidator ID="AgeRequiredFieldValidator" runat="server" ControlToValidate="AgeTextInput" ErrorMessage="Field can't be left blank!" ForeColor="Red" ValidationGroup="RequiredFieldValidator">*</asp:RequiredFieldValidator>
+&nbsp;<asp:RequiredFieldValidator ID="AgeRequiredFieldValidator" runat="server" ControlToValidate="AgeTextInput" ErrorMessage="Age field can't be left blank!" ForeColor="Red" ValidationGroup="RequiredFieldValidator">*</asp:RequiredFieldValidator>
             <br />
             <br />
             &nbsp;<asp:Label ID="DOBLabel" runat="server" Text="DateOfBirth"></asp:Label>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <asp:TextBox ID="CalendarTextBox" runat="server"></asp:TextBox>
-&nbsp;<asp:RequiredFieldValidator ID="CalendarTextBoxRequiredFieldValidator" runat="server" ControlToValidate="CalendarTextBox" ErrorMessage="Field can't be left blank!" ForeColor="Red" ValidationGroup="RequiredFieldValidator">*</asp:RequiredFieldValidator>
+&nbsp;<asp:RequiredFieldValidator ID="CalendarTextBoxRequiredFieldValidator" runat="server" ControlToValidate="CalendarTextBox" ErrorMessage="Date Of Birth field can't be left blank!" ForeColor="Red" ValidationGroup="RequiredFieldValidator">*</asp:RequiredFieldValidator>
                 <asp:Calendar ID="DOBCalendarInput" runat="server" BackColor="White" BorderColor="White" BorderWidth="1px" Font-Names="Verdana" Font-Size="9pt" ForeColor="Black" Height="190px" NextPrevFormat="FullMonth" OnSelectionChanged="DOBCalendarInput_SelectionChanged" SelectedDate="05/31/2021 12:17:53" SelectionMode="DayWeekMonth" VisibleDate="2021-05-31" Width="350px">
                     <DayHeaderStyle Font-Bold="True" Font-Size="8pt" />
                     <NextPrevStyle Font-Bold="True" Font-Size="8pt" ForeColor="#333333" VerticalAlign="Bottom" />
@@ -43,7 +43,7 @@
 &nbsp;<asp:Label ID="DeathSumLabel" runat="server" Text="Death-SumInsured"></asp:Label>
                 &nbsp;&nbsp;&nbsp;
             <asp:TextBox ID="DeathSumTextInput" runat="server" OnTextChanged="DeathSumTextInput_TextChanged"></asp:TextBox>
-&nbsp;<asp:RequiredFieldValidator ID="DeathSumRequiredFieldValidator" runat="server" ControlToValidate="DeathSumTextInput" ErrorMessage="Field can't be left blank!" ForeColor="Red" ValidationGroup="RequiredFieldValidator">*</asp:RequiredFieldValidator>
+&nbsp;<asp:RequiredFieldValidator ID="DeathSumRequiredFieldValidator" runat="server" ControlToValidate="DeathSumTextInput" ErrorMessage="Death Sum field can't be left blank!" ForeColor="Red" ValidationGroup="RequiredFieldValidator">*</asp:RequiredFieldValidator>
             <br />
             <br />
             &nbsp;<asp:Label ID="OccupationLabel" runat="server" Text="Occupation"></asp:Label>
