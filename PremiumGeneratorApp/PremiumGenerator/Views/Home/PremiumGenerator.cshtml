@@ -1,0 +1,78 @@
+﻿@model PremiumGenerator.Models.MemberDetails
+
+@{
+    ViewData["Title"] = "PremiumGenerator";
+}
+
+
+<h1>Monthly Premium Calculator</h1>
+
+<h4>Please fill the details to calculate monthly premium</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        @*@using (Ajax.BeginForm("PremiumGenerator", "Home", new AjaxOptions { HttpMethod = "POST", UpdateTargetId = "form-group" }))*@
+        <form asp-action="PremiumGenerator" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DateOfBirth" class="control-label"></label>
+                <input asp-for="DateOfBirth" class="form-control" />
+                <span asp-validation-for="DateOfBirth" class="text-danger"></span>
+            </div>
+
+            <div class="form-group" id="AgeDiv">
+                <label id="AgeLabel" asp-for="Age" class="control-label"></label>
+                <input id="AgeInput" asp-for="Age" class="form-control" readonly />
+            </div>
+
+            <div class="form-group">
+                <label asp-for="DeathCoverAmount" class="control-label"></label>
+                <input asp-for="DeathCoverAmount" Class="form-control" />
+                <span asp-validation-for="DeathCoverAmount" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="OccupationType" class="control-label"></label>
+                <br />
+                <select id="OccupationType" asp-for="SelectedItem" asp-items="Model.OccupationType" data-val-required="Select an accupation">
+                    <option>Select Occupation</option>
+                </select>
+                <span asp-validation-for="OccupationType" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                <input type="reset" value="Reset" />
+                &nbsp;&nbsp;&nbsp;
+                <a asp-controller="Home" asp-action="Index">Back to Home Page</a>
+            </div>
+            <div class="form-group">
+        <input type="hidden" id="premiumAmount" value="@Model.PremiumAmount"/>
+        </div>
+            @*<h3>Your Monthly premium amount is:  @ViewData["premiumamount"]</h3>*@
+        </form>
+        
+    </div>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+
+    <script type="text/javascript">
+
+        $("#OccupationType").on("change", function ()
+        {
+            if ($(this).val() != "Select Occupation")
+            {
+                this.form.submit();
+                var value = document.getElementById('premiumAmount').value;
+                alert('Your monthly premium amount is: ' + value);
+            }
+        });
+    </script>
+     }
