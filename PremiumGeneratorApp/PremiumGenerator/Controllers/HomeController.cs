@@ -63,10 +63,6 @@ namespace PremiumGenerator.Controllers
             double occupationRatingFactor = memberDetails.occupation.GetOccupationRatingFactor(occupation);
             double premiumAmount = _premiumCalculator.CalculateMonthlyPremiumAmount(deathCoverAmount, occupationRatingFactor, age);
             memberDetails.PremiumAmount = premiumAmount;
-
-            //ViewBag.Message = "Your monthly premium amount is: "+premiumAmount;
-
-            //ViewData["premiumamount"] = premiumAmount;
             return View(memberDetails);
 
         }

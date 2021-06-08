@@ -19,15 +19,15 @@ namespace PremiumGenerator.Models
             [RegularExpression(@"^(([A-za-z]+[\s]{1}[A-za-z]+)|([A-Za-z]+))$",ErrorMessage ="Only Alphabets are allowed.")]
             public string Name { get; set; }
 
-            [Required(ErrorMessage = "Date Of Birth is required")]
-            [Display(Name = "Date Of Birth: ")]
-            [DataType(DataType.Date), DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
-            public DateTime DateOfBirth { get; set; }
+        [Required(ErrorMessage = "Date Of Birth is required")]
+        [Display(Name = "Date Of Birth: ")]
+        [DataType(DataType.Date), DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
+        public DateTime DateOfBirth { get; set; }
 
-            [Required(ErrorMessage = "Death-Sum Insured is required")]
-            [Display(Name = "Death-Sum Insured: ")]
-            [RegularExpression(@"\d+",ErrorMessage = "The amount is not valid.")]
-            public double DeathCoverAmount{ get; set; }
+        [Required(ErrorMessage = "Death-Sum Insured is required")]
+        [Display(Name = "Death-Sum Insured: ")]
+        [RegularExpression(@"\d+", ErrorMessage = "The amount is not valid.")]
+        public double DeathCoverAmount { get; set; }
 
             [Required]
             [Display(Name = "Age: ")]
@@ -51,6 +51,7 @@ namespace PremiumGenerator.Models
             public string SelectedItem { get; set; }
             public List<SelectListItem> OccupationType { get; set; }
 
+            [Display(Name = "Monthly Premium Amount: ")]
             public double PremiumAmount { get; set; }
     }
 }
