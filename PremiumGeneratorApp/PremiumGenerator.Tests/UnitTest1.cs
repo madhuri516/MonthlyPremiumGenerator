@@ -15,7 +15,7 @@ namespace PremiumGenerator.Tests
             PremiumCalculator calculator = new PremiumCalculator();
 
             //Act
-            double actualpremiumAmount = calculator.CalculateMonthlyPremiumAmount(deathCoverAMount,occupationRatingFactor,age);
+            double? actualpremiumAmount = calculator.CalculateMonthlyPremiumAmount(deathCoverAMount,occupationRatingFactor,age);
 
             //Assert
             Assert.Equal(expectedpremiumAmount, actualpremiumAmount);        

@@ -22,27 +22,28 @@ namespace PremiumGenerator.Models
         [Required(ErrorMessage = "Date Of Birth is required")]
         [Display(Name = "Date Of Birth: ")]
         [DataType(DataType.Date), DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
-        public DateTime DateOfBirth { get; set; }
+        public DateTime? DateOfBirth { get; set; }
 
         [Required(ErrorMessage = "Death-Sum Insured is required")]
         [Display(Name = "Death-Sum Insured: ")]
         [RegularExpression(@"\d+", ErrorMessage = "The amount is not valid.")]
-        public double DeathCoverAmount { get; set; }
+        public double? DeathCoverAmount { get; set; }
 
             [Required]
             [Display(Name = "Age: ")]
-            public int Age
+            public int? Age
             {
             get
             {
-                if (DateOfBirth != DateTime.MinValue)
+                if (DateOfBirth.HasValue)
                 {
                     var today = DateTime.Today;
-                    age = today.Year - DateOfBirth.Year;
+                    age = today.Year - DateOfBirth.Value.Year;
                     if (DateOfBirth > today.AddYears(-age))
                     { age--; }
+                    return age;
                 }
-                return age;
+                return null;
             }
             }
 
@@ -52,6 +53,6 @@ namespace PremiumGenerator.Models
             public List<SelectListItem> OccupationType { get; set; }
 
             [Display(Name = "Monthly Premium Amount: ")]
-            public double PremiumAmount { get; set; }
+            public double? PremiumAmount { get; set; }
     }
 }

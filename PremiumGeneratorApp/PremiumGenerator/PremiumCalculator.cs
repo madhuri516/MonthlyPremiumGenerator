@@ -5,10 +5,13 @@ using System.Threading.Tasks;
 
 namespace PremiumGenerator.Models
 {
+    // this class calculates the monthly premium amount through CalculateMonthlyPremiumAmount method
+    // it implements the CalculateMonthlyPremiumAmount method defined in IPremiumCalculator interface
     public class PremiumCalculator: IPremiumCalculator
     {
-        public double deathPremiumAmount = 0.0;
-        public double CalculateMonthlyPremiumAmount(double deathCoverAmount, double occupationRatingFactor, int age)
+        public double? deathPremiumAmount = 0.0;
+        //calculate premium
+        public double? CalculateMonthlyPremiumAmount(double? deathCoverAmount, double occupationRatingFactor, int? age)
         {
             try
             {

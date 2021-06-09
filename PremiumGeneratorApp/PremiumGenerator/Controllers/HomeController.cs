@@ -13,16 +13,11 @@ namespace PremiumGenerator.Controllers
 {
     public class HomeController : Controller
     {
-        //private readonly ILogger<HomeController> _logger;
-
-        //public HomeController(ILogger<HomeController> logger)
-        //{
-        //    _logger = logger;
-        //}
+    
 
         private IPremiumCalculator _premiumCalculator;
-        
 
+        //Injecting dependency through constructor by using IPremiumCalculator interface object as a service
         public HomeController(IPremiumCalculator premiumCalculator)
         {
             _premiumCalculator = premiumCalculator;
@@ -34,6 +29,7 @@ namespace PremiumGenerator.Controllers
             return View();
         }
 
+        //Getting OccupationType from server(Occupation model) and passing to view
         [HttpGet]
         public IActionResult PremiumGenerator()
         {
@@ -49,19 +45,23 @@ namespace PremiumGenerator.Controllers
                         Selected = false
                     };
                 });
+            
 
 
             return View(memberDetails);
         }
 
+        //POsting the form values entered by user to server
+        //calculating premium amount with received form values
+        //pass the premium amount value to view and display to user
         [HttpPost]
         public IActionResult PremiumGenerator(MemberDetails memberDetails)
         {
-            double deathCoverAmount = memberDetails.DeathCoverAmount;
-            int age = memberDetails.Age;
+            double? deathCoverAmount = memberDetails.DeathCoverAmount;
+            int? age = memberDetails.Age;
             string occupation = memberDetails.SelectedItem;
             double occupationRatingFactor = memberDetails.occupation.GetOccupationRatingFactor(occupation);
-            double premiumAmount = _premiumCalculator.CalculateMonthlyPremiumAmount(deathCoverAmount, occupationRatingFactor, age);
+            double? premiumAmount = _premiumCalculator.CalculateMonthlyPremiumAmount(deathCoverAmount, occupationRatingFactor, age);
             memberDetails.PremiumAmount = premiumAmount;
             return View(memberDetails);
 

@@ -7,6 +7,6 @@ namespace PremiumGenerator.Models
 {
     public interface IPremiumCalculator
     {
-        double CalculateMonthlyPremiumAmount(double deathCoverAmount, double occupationRatingFactor, int age);
+        double? CalculateMonthlyPremiumAmount(double? deathCoverAmount, double occupationRatingFactor, int? age);
     }
 }
