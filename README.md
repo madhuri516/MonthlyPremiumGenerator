@@ -1,2 +1,2 @@
-# MonthlyPremiumGenerator
-this repository is related to premiumgenerator web form application
+# PractiseProjectsRepo
+this repository is created to store and maintain all practise projects
