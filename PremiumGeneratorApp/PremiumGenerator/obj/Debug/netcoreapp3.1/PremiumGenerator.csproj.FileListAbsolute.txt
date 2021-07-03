@@ -110,3 +110,4 @@ C:\Users\madhu\MyGitDir\PremiumGeneratorApp\PremiumGenerator\obj\Debug\netcoreap
 C:\Users\madhu\MyGitDir\PremiumGeneratorApp\PremiumGenerator\obj\Debug\netcoreapp3.1\PremiumGenerator.dll
 C:\Users\madhu\MyGitDir\PremiumGeneratorApp\PremiumGenerator\obj\Debug\netcoreapp3.1\PremiumGenerator.pdb
 C:\Users\madhu\MyGitDir\PremiumGeneratorApp\PremiumGenerator\obj\Debug\netcoreapp3.1\PremiumGenerator.genruntimeconfig.cache
+C:\Users\madhu\MyGitDir\PremiumGeneratorApp\PremiumGenerator\obj\Debug\netcoreapp3.1\PremiumGenerator.csprojAssemblyReference.cache

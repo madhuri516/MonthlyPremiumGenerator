@@ -8,5 +8,6 @@ namespace URLTrackerOnSearchEngines
     public interface ISearchEngineResult
     {
         int GetSearchResultFromSearchEngine(string searchEngine, string keyword);
+        int FindURLPosition(string html, Uri searchuri);
     }
 }

@@ -51,7 +51,7 @@ namespace URLTrackerOnSearchEngines
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=SearchResultGenerator}");
+                    pattern: "{controller=Home}/{action=SearchPositionGenerator}");
             });
         }
     }

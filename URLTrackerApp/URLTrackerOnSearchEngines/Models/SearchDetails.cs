@@ -9,16 +9,13 @@ namespace URLTrackerOnSearchEngines.Models
 {
     public class SearchDetails
     {
-        //public SearchEngines searchengines = new SearchEngines();
 
-        [Required(ErrorMessage = "Keyword is required")]
+        [Required(ErrorMessage = "Keyword is required!")]
         [Display(Name = "Search Keyword: ")]
         public string SearchKeyword { get; set; }
-
-        //public const string SearchURL = "www.sympli.com.au";
         public string SelectedItem { get; set; }
         public List<SelectListItem> SearchEngine { get; set; }
-        [Display(Name = "URL Appearance Rank: ")]
+        [Display(Name = "URL Appearance Rank/Position is: ")]
         public int Rank { get; set; }
     }
 }

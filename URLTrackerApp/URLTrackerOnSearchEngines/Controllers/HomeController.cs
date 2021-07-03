@@ -7,18 +7,22 @@ using System.Linq;
 using System.Threading.Tasks;
 using URLTrackerOnSearchEngines.Models;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.Extensions.Caching.Memory;
 
 namespace URLTrackerOnSearchEngines.Controllers
 {
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly IMemoryCache _cache;
         private readonly ISearchEngineResult _searchEngineResult;
 
-        public HomeController(ISearchEngineResult searchEngineResult, ILogger<HomeController> logger)
+
+        public HomeController(ISearchEngineResult searchEngineResult, ILogger<HomeController> logger, IMemoryCache memorycache)
         {
             _logger = logger;
             _searchEngineResult = searchEngineResult;
+            _cache = memorycache;
         }
 
         public IActionResult Index()
@@ -26,8 +30,9 @@ namespace URLTrackerOnSearchEngines.Controllers
             return View();
         }
 
+        //Get the values of Search Engine dropdown and set it on page load
         [HttpGet]
-        public IActionResult SearchResultGenerator()
+        public IActionResult SearchPositionGenerator()
         {
             SearchEngines searchEngines = new SearchEngines();
             SearchDetails searchDetails = new SearchDetails {
@@ -43,12 +48,18 @@ namespace URLTrackerOnSearchEngines.Controllers
             return View(searchDetails);
         }
 
+        //Calculate and post the value of Searched URL Position/Rank
         [HttpPost]
-        public IActionResult SearchResultGenerator(SearchDetails searchDetails)
+        public IActionResult SearchPositionGenerator(SearchDetails searchDetails)
         {
             string searchEngine = searchDetails.SelectedItem;
             string keyword = searchDetails.SearchKeyword;
-            int rank = _searchEngineResult.GetSearchResultFromSearchEngine(searchEngine,  keyword);
+            int rank = _cache.GetOrCreate("CacheRank", entry =>
+            {
+                entry.SlidingExpiration = TimeSpan.FromHours(1);
+                return _searchEngineResult.GetSearchResultFromSearchEngine(searchEngine, keyword);
+            });
+            
             searchDetails.Rank = rank;
             return View(searchDetails);
         }
