@@ -1,0 +1,40 @@
+﻿@model URLTrackerOnSearchEngines.Models.SearchDetails
+@{
+    ViewData["Title"] = "SearchPositionResults";
+}
+
+<h4>URL Position Results</h4>
+
+<hr />
+<div class="row" style="border:inset">
+    <div class="col-md-4">
+        <form asp-action="SearchPositionGenerator">
+            <div class="form-group">
+                <table id="resultTable">
+                    <thead>
+                        <tr>
+                            <th>Search Engine</th>
+                            <th>URL Position/Rank</th>
+                            <th>URL Appearance Count</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>@Model.SelectedItem</strong></td>
+                            <td>@Model.Rank</td>
+                            <td>@Model.NumberOfAppearances</td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="form-group">
+                
+               
+                <a asp-controller="Home" asp-action="SearchPositionGenerator">Back to URLPositionTracker Page</a>
+            </div>
+        </form>
+    </div>
+</div>
+

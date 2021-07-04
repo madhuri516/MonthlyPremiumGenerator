@@ -1,10 +1,10 @@
 ﻿@model URLTrackerOnSearchEngines.Models.SearchDetails
 
 @{
-    ViewData["Title"] = "SearchPositionGenerator";
+    ViewData["Title"] = "URLPositionTracker";
 }
 
-<h4>SearchResultGenerator</h4>
+<h4>URL Position Tracker</h4>
 
 
 <hr />
@@ -13,29 +13,27 @@
         <form asp-action="SearchPositionGenerator">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="SearchKeyword" class="control-label"></label>
-                <input asp-for="SearchKeyword" class="form-control" />
-                <span asp-validation-for="SearchKeyword" class="text-danger"></span>
-                
-                Search URL: <input class="form-control" type="text" value="https://www.simply.com.au" readonly />
+                            <label asp-for="SearchKeyword" class="control-label"></label>
+                            <input asp-for="SearchKeyword" class="form-control" />
+                            <span asp-validation-for="SearchKeyword" class="text-danger"></span>
+
+             </div>
+            <div class="form-group">
+                      Search URL: <input class="form-control" type="text" value="https://www.simply.com.au" readonly />
             </div>
-            
+
             <div class="form-group">
                 <label asp-for="SearchEngine" class="control-label"></label>
                 <br />
                 <select id="SearchEngine" asp-for="SelectedItem" asp-items="Model.SearchEngine">
-                    <option>Select SearchEngine</option>
                 </select>
                 <span asp-validation-for="SearchEngine" class="text-danger"></span>
             </div>
 
             <div class="form-group">
-                <input type="submit" id="btnSubmit" value="Pull Rank" class="btn btn-primary"/>
+                <input type="submit" id="btnSubmit" value="Pull Details" class="btn btn-primary" />
             </div>
-            <div class="form-group" id="rankDiv">
-                <label asp-for="Rank" class="control-label"></label>
-                <input asp-for="Rank" id="RankInput" class="form-control" value="@Model.Rank"/>
-            </div>
+
         </form>
     </div>
 </div>
@@ -43,5 +41,6 @@
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
 
 }

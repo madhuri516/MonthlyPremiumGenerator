@@ -109,3 +109,4 @@ C:\Users\madhu\source\repos\URLTrackerApp\URLTrackerOnSearchEngines\obj\Debug\ne
 C:\Users\madhu\source\repos\URLTrackerApp\URLTrackerOnSearchEngines\obj\Debug\netcoreapp3.1\URLTrackerOnSearchEngines.pdb
 C:\Users\madhu\source\repos\URLTrackerApp\URLTrackerOnSearchEngines\obj\Debug\netcoreapp3.1\URLTrackerOnSearchEngines.genruntimeconfig.cache
 C:\Users\madhu\source\repos\URLTrackerApp\URLTrackerOnSearchEngines\obj\Debug\netcoreapp3.1\Razor\Views\Home\SearchPositionGenerator.cshtml.g.cs
+C:\Users\madhu\source\repos\URLTrackerApp\URLTrackerOnSearchEngines\obj\Debug\netcoreapp3.1\Razor\Views\Home\SearchResults.cshtml.g.cs

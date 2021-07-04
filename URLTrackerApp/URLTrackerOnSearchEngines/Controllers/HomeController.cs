@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using URLTrackerOnSearchEngines.Models;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.Extensions.Caching.Memory;
+using System.Data;
 
 namespace URLTrackerOnSearchEngines.Controllers
 {
@@ -48,20 +49,22 @@ namespace URLTrackerOnSearchEngines.Controllers
             return View(searchDetails);
         }
 
-        //Calculate and post the value of Searched URL Position/Rank
+        
+        //Calculate and pass the value of Searched URL's Position/Rank and number of occurances in SearchResults View
         [HttpPost]
         public IActionResult SearchPositionGenerator(SearchDetails searchDetails)
         {
             string searchEngine = searchDetails.SelectedItem;
             string keyword = searchDetails.SearchKeyword;
-            int rank = _cache.GetOrCreate("CacheRank", entry =>
+            //caching to limit call to search engine one call per hour per search
+            var results = _cache.GetOrCreate("CacheRank", entry =>
             {
                 entry.SlidingExpiration = TimeSpan.FromHours(1);
                 return _searchEngineResult.GetSearchResultFromSearchEngine(searchEngine, keyword);
             });
-            
-            searchDetails.Rank = rank;
-            return View(searchDetails);
+            searchDetails.NumberOfAppearances = results.Item2;
+            searchDetails.Rank = results.Item1;
+            return View("SearchResults",searchDetails);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

@@ -15,7 +15,7 @@ namespace URLTrackerOnSearchEngines.Models
         public string SearchKeyword { get; set; }
         public string SelectedItem { get; set; }
         public List<SelectListItem> SearchEngine { get; set; }
-        [Display(Name = "URL Appearance Rank/Position is: ")]
-        public int Rank { get; set; }
+        public string Rank { get; set; }
+        public int NumberOfAppearances { get; set; }
     }
 }

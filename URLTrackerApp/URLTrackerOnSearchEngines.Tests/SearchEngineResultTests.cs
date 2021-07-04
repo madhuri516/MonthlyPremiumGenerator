@@ -2,6 +2,7 @@ using System;
 using Xunit;
 using URLTrackerOnSearchEngines;
 using Microsoft.Extensions.Logging;
+using System.Collections.Generic;
 
 namespace URLTrackerOnSearchEngines.Tests
 {
@@ -10,115 +11,51 @@ namespace URLTrackerOnSearchEngines.Tests
         private readonly ILogger<SearchEngineResults> logger;
 
         [Fact]
-        public void CanFindURLPosition()
+        public void ReturnCOrrectURLPosition_FindURLPosition()
         {
             //Arrange
              SearchEngineResults searchEngineResults = new SearchEngineResults(logger);
             string html = $"https://www.sympli.com.au/&amp;sa=U&amp;ved=2ahUKEwilvYmv9L_xAhUPGrkGHbNfBdQQFjAMegQIKBAB&amp;usg=AOvVaw0eE4oAWHcpkmPl7mkdr5fT";
             Uri searchURL = new Uri("https://www.sympli.com.au");
-            int expectedURLPosition = 2;
+            List<int> expectedURLPosition = new List<int>{ 1 };
 
             //Act
-            int actualURLPosition = searchEngineResults.FindURLPosition(html, searchURL);
+            List<int> actualURLPosition = searchEngineResults.FindURLPosition(html, searchURL);
 
             //Assert
             Assert.Equal(expectedURLPosition, actualURLPosition);
         }
 
         [Fact]
-        public void ReturnZeroIfMatchingURLNotFound()
+        public void ReturnEmptyListOfURLPositionIfMatchingURLNotFound_FindURLPosition()
         {
             //Arrange
             SearchEngineResults searchEngineResults = new SearchEngineResults(logger);
             string html = $"https://www.pexa.com.au/&amp;sa=U&amp;ved=2ahUKEwilvYmv9L_xAhUPGrkGHbNfBdQQFjANegQIFhAB&amp;usg=AOvVaw3bRZ4vzFiahH9crAnVAmHr";
             Uri searchURL = new Uri("https://www.sympli.com.au");
-            int expectedURLPosition = 0;
+            List<int> expectedURLPosition = new List<int>();
 
             //Act
-            int actualURLPosition = searchEngineResults.FindURLPosition(html, searchURL);
+            List<int> actualURLPosition = searchEngineResults.FindURLPosition(html, searchURL);
 
             //Assert
             Assert.Equal(expectedURLPosition, actualURLPosition);
         }
 
         [Fact]
-        public void GetSearchURLRankIfSearchEngineAndKeywordProvided()
+        public void GetSearchURLRankAndCountIfMatchingURLisFound_GetSearchResultFromSearchEngine()
         {
             //Arrange
             SearchEngineResults searchEngineResults = new SearchEngineResults(logger);
             string searchEngine = "Google";
             string keyword = "e-settlements";
-            int expectedURLPosition = 2;
+            (string,int) expectedURLPositionAndCount = ("2",1);
 
             //Act
-            int actualURLPosition = searchEngineResults.GetSearchResultFromSearchEngine(searchEngine, keyword);
+            (string,int) actualURLPositionAndCount = searchEngineResults.GetSearchResultFromSearchEngine(searchEngine, keyword);
 
             //Assert
-            Assert.Equal(expectedURLPosition, actualURLPosition);
-        }
-
-        [Fact]
-        public void ReturnZeroIfSearchEngineIsNull()
-        {
-            //Arrange
-            SearchEngineResults searchEngineResults = new SearchEngineResults(logger);
-            string searchEngine = null;
-            string keyword = "e-settlements";
-            int expectedURLPosition = 0;
-
-            //Act
-            int actualURLPosition = searchEngineResults.GetSearchResultFromSearchEngine(searchEngine, keyword);
-
-            //Assert
-            Assert.Equal(expectedURLPosition, actualURLPosition);
-        }
-
-        [Fact]
-        public void ReturnZeroIfSearchEngineIsEmpty()
-        {
-            //Arrange
-            SearchEngineResults searchEngineResults = new SearchEngineResults(logger);
-            string searchEngine = "";
-            string keyword = "e-settlements";
-            int expectedURLPosition = 0;
-
-            //Act
-            int actualURLPosition = searchEngineResults.GetSearchResultFromSearchEngine(searchEngine, keyword);
-
-            //Assert
-            Assert.Equal(expectedURLPosition, actualURLPosition);
-        }
-
-        [Fact]
-        public void ReturnZeroIfKeywordIsNull()
-        {
-            //Arrange
-            SearchEngineResults searchEngineResults = new SearchEngineResults(logger);
-            string searchEngine = "Google";
-            string keyword = null;
-            int expectedURLPosition = 0;
-
-            //Act
-            int actualURLPosition = searchEngineResults.GetSearchResultFromSearchEngine(searchEngine, keyword);
-
-            //Assert
-            Assert.Equal(expectedURLPosition, actualURLPosition);
-        }
-
-        [Fact]
-        public void ReturnZeroIfKeywordIsEmpty()
-        {
-            //Arrange
-            SearchEngineResults searchEngineResults = new SearchEngineResults(logger);
-            string searchEngine = "Google";
-            string keyword = "";
-            int expectedURLPosition = 0;
-
-            //Act
-            int actualURLPosition = searchEngineResults.GetSearchResultFromSearchEngine(searchEngine, keyword);
-
-            //Assert
-            Assert.Equal(expectedURLPosition, actualURLPosition);
+            Assert.Equal(expectedURLPositionAndCount, actualURLPositionAndCount);
         }
 
     }
