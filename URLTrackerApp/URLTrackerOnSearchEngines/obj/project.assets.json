@@ -6004,11 +6004,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\madhu\\source\\repos\\URLTrackerApp\\URLTrackerOnSearchEngines\\URLTrackerOnSearchEngines.csproj",
+      "projectUniqueName": "C:\\Users\\madhu\\MyGitDir\\URLTrackerApp\\URLTrackerOnSearchEngines\\URLTrackerOnSearchEngines.csproj",
       "projectName": "URLTrackerOnSearchEngines",
-      "projectPath": "C:\\Users\\madhu\\source\\repos\\URLTrackerApp\\URLTrackerOnSearchEngines\\URLTrackerOnSearchEngines.csproj",
+      "projectPath": "C:\\Users\\madhu\\MyGitDir\\URLTrackerApp\\URLTrackerOnSearchEngines\\URLTrackerOnSearchEngines.csproj",
       "packagesPath": "C:\\Users\\madhu\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\madhu\\source\\repos\\URLTrackerApp\\URLTrackerOnSearchEngines\\obj\\",
+      "outputPath": "C:\\Users\\madhu\\MyGitDir\\URLTrackerApp\\URLTrackerOnSearchEngines\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
@@ -6059,6 +6059,12 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
+        "downloadDependencies": [
+          {
+            "name": "Microsoft.NETCore.App.Host.win-x64",
+            "version": "[3.1.12, 3.1.12]"
+          }
+        ],
         "frameworkReferences": {
           "Microsoft.AspNetCore.App": {
             "privateAssets": "none"
@@ -6067,7 +6073,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100-preview.3.21202.5\\RuntimeIdentifierGraph.json"
       }
     }
   }

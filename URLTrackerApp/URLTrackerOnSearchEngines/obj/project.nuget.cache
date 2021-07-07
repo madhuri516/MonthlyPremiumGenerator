@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "2U77ML+dhjLuowbXdfu99rnhnJKlu1CZAikw3LuSZd4eH9qJdTq0ZJIV3n8WUum78TQPTD3NqVAkdJgVoALQbw==",
+  "dgSpecHash": "YA/tM+XjBq/CZczI0EOpehLVNtmT12Y8VWpKa/D3FEWj1ncnkReul/guaOWy1XB7FRO4b11RfWjzottb+pgw5g==",
   "success": true,
-  "projectFilePath": "C:\\Users\\madhu\\source\\repos\\URLTrackerApp\\URLTrackerOnSearchEngines\\URLTrackerOnSearchEngines.csproj",
+  "projectFilePath": "C:\\Users\\madhu\\MyGitDir\\URLTrackerApp\\URLTrackerOnSearchEngines\\URLTrackerOnSearchEngines.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\madhu\\.nuget\\packages\\microsoft.aspnetcore.html.abstractions\\2.2.0\\microsoft.aspnetcore.html.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\madhu\\.nuget\\packages\\microsoft.aspnetcore.razor\\2.2.0\\microsoft.aspnetcore.razor.2.2.0.nupkg.sha512",
@@ -110,7 +110,8 @@
     "C:\\Users\\madhu\\.nuget\\packages\\system.threading.tasks.extensions\\4.5.3\\system.threading.tasks.extensions.4.5.3.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\system.threading.timer\\4.3.0\\system.threading.timer.4.3.0.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\system.xml.readerwriter\\4.3.0\\system.xml.readerwriter.4.3.0.nupkg.sha512",
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512"
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512",
+    "C:\\Users\\madhu\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\3.1.12\\microsoft.netcore.app.host.win-x64.3.1.12.nupkg.sha512"
   ],
   "logs": []
 }
